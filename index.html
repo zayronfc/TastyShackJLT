@@ -2,54 +2,1079 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#5d1832">
-  <title>The Tasty Shack | JLT Cluster D</title>
-  <link rel="stylesheet" href="style.css?v=1">
+
+  <!-- Mobile browser theme colour -->
+  <meta name="theme-color" content="#6B1737">
+
+  <meta
+    name="description"
+    content="Tasty Shack - Family-run Uzbek and Russian comfort food in Indigo Tower, Cluster D, JLT, Dubai."
+  >
+
+  <title>Tasty Shack | JLT Dubai</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700;800&family=Playfair+Display:wght@700&family=Satisfy&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --maroon: #6B1737;
+      --maroon-dark: #511027;
+      --maroon-light: #862044;
+
+      --cream: #FFF9EE;
+      --cream-dark: #F8EFDE;
+
+      --gold: #F5C85C;
+      --gold-dark: #D99D27;
+
+      --text-dark: #57172E;
+      --white: #FFFFFF;
+
+      --shadow:
+        0 30px 70px rgba(30, 5, 16, 0.35),
+        0 8px 22px rgba(30, 5, 16, 0.18);
+    }
+
+
+    /* =========================================
+       RESET
+    ========================================== */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+
+      font-family: "DM Sans", Arial, sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 18% 12%,
+          rgba(245, 200, 92, 0.15),
+          transparent 34%
+        ),
+        radial-gradient(
+          circle at 84% 90%,
+          rgba(245, 200, 92, 0.06),
+          transparent 30%
+        ),
+        linear-gradient(
+          145deg,
+          #6d1c2b 0%,
+          #5b1231 48%,
+          #3f0c22 100%
+        );
+
+      color: var(--text-dark);
+
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+
+      padding: 42px 0;
+    }
+
+
+    a {
+      color: inherit;
+    }
+
+
+    /* =========================================
+       MAIN CARD
+    ========================================== */
+
+    .restaurant-card {
+      position: relative;
+
+      max-width: 420px;
+      width: 90%;
+      margin: auto;
+
+      background:
+        repeating-linear-gradient(
+          135deg,
+          rgba(107, 23, 55, 0.015) 0,
+          rgba(107, 23, 55, 0.015) 2px,
+          transparent 2px,
+          transparent 11px
+        ),
+        var(--cream);
+
+      border: 1px solid rgba(245, 200, 92, 0.55);
+      border-radius: 18px;
+
+      box-shadow: var(--shadow);
+
+      padding: 31px 28px 26px;
+
+      overflow: hidden;
+    }
+
+
+    /* =========================================
+       CORNER ORNAMENTS
+    ========================================== */
+
+    .corner {
+      position: absolute;
+
+      width: 24px;
+      height: 24px;
+
+      pointer-events: none;
+    }
+
+    .corner::before,
+    .corner::after {
+      content: "";
+      position: absolute;
+
+      background: var(--gold);
+    }
+
+
+    .corner-top-left {
+      top: 0;
+      left: 0;
+
+      border-bottom-right-radius: 22px;
+
+      background: var(--maroon);
+    }
+
+    .corner-top-right {
+      top: 0;
+      right: 0;
+
+      border-bottom-left-radius: 22px;
+
+      background: var(--maroon);
+    }
+
+    .corner-bottom-left {
+      bottom: 0;
+      left: 0;
+
+      border-top-right-radius: 22px;
+
+      background: var(--maroon);
+    }
+
+    .corner-bottom-right {
+      bottom: 0;
+      right: 0;
+
+      border-top-left-radius: 22px;
+
+      background: var(--maroon);
+    }
+
+
+    /* Gold curve inside corners */
+
+    .corner-top-left::after,
+    .corner-bottom-right::after {
+      width: 17px;
+      height: 4px;
+
+      transform: rotate(-45deg);
+
+      border-radius: 10px;
+    }
+
+    .corner-top-right::after,
+    .corner-bottom-left::after {
+      width: 17px;
+      height: 4px;
+
+      transform: rotate(45deg);
+
+      border-radius: 10px;
+    }
+
+    .corner-top-left::after {
+      top: 4px;
+      left: 1px;
+    }
+
+    .corner-top-right::after {
+      top: 4px;
+      right: 1px;
+    }
+
+    .corner-bottom-left::after {
+      bottom: 4px;
+      left: 1px;
+    }
+
+    .corner-bottom-right::after {
+      bottom: 4px;
+      right: 1px;
+    }
+
+
+    /* =========================================
+       LOCATION HEADER
+    ========================================== */
+
+    .location-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      gap: 11px;
+
+      margin: 0 0 18px;
+    }
+
+    .location-header::before,
+    .location-header::after {
+      content: "";
+
+      width: 47px;
+      height: 1px;
+
+      background: rgba(107, 23, 55, 0.45);
+    }
+
+    .location-header span {
+      font-size: 10px;
+      font-weight: 800;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+
+      color: var(--maroon);
+
+      white-space: nowrap;
+    }
+
+
+    /* =========================================
+       LOGO
+    ========================================== */
+
+    .logo-wrap {
+      display: flex;
+      justify-content: center;
+
+      margin: 0 auto 12px;
+    }
+
+    .logo-tile {
+      width: 145px;
+      height: 145px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #C8DB86;
+
+      border: 1.5px solid var(--gold-dark);
+      border-radius: 18px;
+
+      padding: 8px;
+
+      box-shadow:
+        0 12px 22px rgba(65, 26, 18, 0.18),
+        0 4px 8px rgba(65, 26, 18, 0.10);
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .logo-tile:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 15px 26px rgba(65, 26, 18, 0.21),
+        0 5px 10px rgba(65, 26, 18, 0.12);
+    }
+
+    .logo-tile img {
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: contain;
+    }
+
+
+    /* =========================================
+       RESTAURANT NAME
+    ========================================== */
+
+    h1 {
+      font-family: "Playfair Display", Georgia, serif;
+
+      text-align: center;
+
+      color: var(--maroon);
+
+      font-size: 20px;
+      line-height: 1.2;
+
+      margin: 2px 0 6px;
+
+      letter-spacing: 0.4px;
+    }
+
+
+    /* =========================================
+       MAIN TAGLINE
+    ========================================== */
+
+    .main-tagline {
+      font-family: "Satisfy", cursive;
+
+      color: var(--maroon);
+
+      text-align: center;
+
+      font-size: clamp(27px, 8vw, 35px);
+      line-height: 1.05;
+
+      margin: 9px auto 15px;
+
+      max-width: 340px;
+    }
+
+
+    /* Decorative separator */
+
+    .separator {
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 11px;
+
+      margin: 0 0 19px;
+    }
+
+    .separator::before,
+    .separator::after {
+      content: "";
+
+      height: 1px;
+      flex: 1;
+
+      background: rgba(217, 157, 39, 0.67);
+    }
+
+    .separator span {
+      color: var(--gold-dark);
+
+      font-size: 11px;
+    }
+
+
+    /* =========================================
+       FEATURES
+    ========================================== */
+
+    .features {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 9px;
+
+      margin-bottom: 19px;
+    }
+
+    .feature {
+      text-align: center;
+    }
+
+    .feature-icon {
+      width: 52px;
+      height: 52px;
+
+      margin: 0 auto 8px;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          145deg,
+          var(--maroon-light),
+          var(--maroon)
+        );
+
+      color: var(--gold);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 21px;
+
+      box-shadow:
+        0 6px 12px rgba(107, 23, 55, 0.13);
+    }
+
+    .feature-title {
+      display: block;
+
+      color: var(--maroon);
+
+      text-transform: uppercase;
+
+      font-size: 9px;
+      font-weight: 800;
+
+      line-height: 1.35;
+
+      letter-spacing: 0.7px;
+    }
+
+
+    /* =========================================
+       OPENING HOURS
+    ========================================== */
+
+    .hours {
+      text-align: center;
+
+      color: rgba(87, 23, 46, 0.75);
+
+      font-size: 12px;
+      font-weight: 700;
+
+      letter-spacing: 0.25px;
+
+      margin: 0 0 14px;
+    }
+
+    .hours span {
+      color: var(--gold-dark);
+
+      margin-right: 3px;
+    }
+
+
+    /* =========================================
+       BUTTONS
+    ========================================== */
+
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+
+      gap: 12px;
+    }
+
+    .action-button {
+      min-height: 58px;
+
+      width: 100%;
+
+      display: grid;
+
+      grid-template-columns: 46px 1fr 28px;
+
+      align-items: center;
+
+      border-radius: 14px;
+
+      padding: 5px 12px;
+
+      text-decoration: none;
+
+      font-size: 17px;
+      font-weight: 800;
+
+      letter-spacing: 0.3px;
+
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease;
+    }
+
+    .action-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .action-button:active {
+      transform: translateY(0);
+    }
+
+    .action-button:focus-visible {
+      outline: 3px solid rgba(245, 200, 92, 0.6);
+      outline-offset: 3px;
+    }
+
+
+    .button-icon {
+      width: 38px;
+      height: 38px;
+
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 18px;
+    }
+
+
+    .button-label {
+      text-align: center;
+    }
+
+
+    .button-arrow {
+      text-align: center;
+
+      font-size: 29px;
+      font-weight: 500;
+
+      line-height: 1;
+    }
+
+
+    /* Menu */
+
+    .button-menu {
+      color: var(--white);
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--maroon),
+          #861e45
+        );
+
+      border: 2px solid var(--maroon);
+
+      box-shadow:
+        0 8px 16px rgba(107, 23, 55, 0.16);
+    }
+
+    .button-menu .button-icon {
+      border: 1px solid rgba(255, 255, 255, 0.55);
+
+      color: var(--white);
+    }
+
+
+    /* Review */
+
+    .button-review {
+      color: var(--maroon);
+
+      background: var(--white);
+
+      /*
+        Visible border so this button no longer
+        blends into the cream card.
+      */
+      border: 2px solid rgba(107, 23, 55, 0.22);
+
+      box-shadow:
+        0 5px 13px rgba(65, 26, 18, 0.09);
+    }
+
+    .button-review:hover {
+      border-color: rgba(107, 23, 55, 0.42);
+
+      box-shadow:
+        0 7px 17px rgba(65, 26, 18, 0.13);
+    }
+
+    .button-review .button-icon {
+      background: #FFFFFF;
+
+      border: 1px solid #ECECEC;
+
+      box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.10);
+
+      font-family: Arial, sans-serif;
+
+      font-size: 19px;
+      font-weight: 800;
+
+      color: #4285F4;
+    }
+
+
+    /* Directions */
+
+    .button-directions {
+      color: var(--maroon);
+
+      background:
+        linear-gradient(
+          135deg,
+          #FFD978,
+          var(--gold)
+        );
+
+      border: 2px solid rgba(217, 157, 39, 0.6);
+
+      box-shadow:
+        0 6px 13px rgba(217, 157, 39, 0.19);
+    }
+
+    .button-directions .button-icon {
+      background: rgba(255, 255, 255, 0.74);
+
+      color: var(--maroon);
+
+      font-size: 18px;
+    }
+
+
+    /* =========================================
+       SECONDARY TAGLINE
+    ========================================== */
+
+    .secondary-tagline {
+      font-family: "Satisfy", cursive;
+
+      text-align: center;
+
+      color: rgba(107, 23, 55, 0.76);
+
+      font-size: 22px;
+      line-height: 1.15;
+
+      margin: 18px 0 15px;
+    }
+
+
+    /* =========================================
+       FOOTER
+    ========================================== */
+
+    .footer-divider {
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 9px;
+
+      margin-bottom: 11px;
+    }
+
+    .footer-divider::before,
+    .footer-divider::after {
+      content: "";
+
+      height: 1px;
+
+      width: 56px;
+
+      background: rgba(217, 157, 39, 0.55);
+    }
+
+    .footer-divider span {
+      color: var(--gold-dark);
+
+      font-size: 10px;
+    }
+
+
+    address {
+      font-style: normal;
+
+      text-align: center;
+
+      color: var(--maroon);
+
+      font-size: 12px;
+
+      line-height: 1.65;
+
+      letter-spacing: 0.85px;
+
+      font-weight: 700;
+    }
+
+    address .restaurant-footer-name {
+      display: block;
+
+      text-transform: uppercase;
+
+      font-weight: 800;
+
+      letter-spacing: 1.6px;
+
+      margin-bottom: 2px;
+    }
+
+    address a {
+      text-decoration: none;
+
+      transition: opacity 0.2s ease;
+    }
+
+    address a:hover {
+      text-decoration: underline;
+
+      text-underline-offset: 3px;
+    }
+
+
+    /* =========================================
+       MOBILE
+    ========================================== */
+
+    @media (max-width: 480px) {
+
+      body {
+        padding: 20px 0;
+      }
+
+      .restaurant-card {
+        max-width: 420px;
+        width: 90%;
+        margin: auto;
+
+        padding: 27px 19px 23px;
+
+        border-radius: 16px;
+      }
+
+      .location-header {
+        gap: 8px;
+      }
+
+      .location-header::before,
+      .location-header::after {
+        width: 31px;
+      }
+
+      .location-header span {
+        font-size: 9px;
+
+        letter-spacing: 2px;
+      }
+
+      .logo-tile {
+        width: 132px;
+        height: 132px;
+      }
+
+      h1 {
+        font-size: 18px;
+      }
+
+      .main-tagline {
+        font-size: 29px;
+      }
+
+      .feature-icon {
+        width: 48px;
+        height: 48px;
+      }
+
+      .feature-title {
+        font-size: 8px;
+        letter-spacing: 0.45px;
+      }
+
+      .action-button {
+        /*
+          comfortably exceeds Apple's / Google's
+          common 44px touch-target guidance.
+        */
+        min-height: 56px;
+
+        grid-template-columns: 42px 1fr 25px;
+
+        padding-left: 10px;
+        padding-right: 9px;
+
+        font-size: 15px;
+      }
+
+      .button-icon {
+        width: 36px;
+        height: 36px;
+      }
+
+      .secondary-tagline {
+        font-size: 20px;
+      }
+
+      address {
+        font-size: 12px;
+        letter-spacing: 0.65px;
+      }
+    }
+
+
+    @media (max-width: 350px) {
+
+      .restaurant-card {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      .main-tagline {
+        font-size: 26px;
+      }
+
+      .action-button {
+        font-size: 14px;
+      }
+
+      .feature-title {
+        font-size: 7.5px;
+      }
+    }
+  </style>
 </head>
+
+
 <body>
-  <main class="restaurant-page">
-    <section class="restaurant-card">
-      <div class="corner corner-tl"></div><div class="corner corner-tr"></div>
-      <div class="corner corner-bl"></div><div class="corner corner-br"></div>
 
-      <div class="location"><span></span><p>CLUSTER D · JLT · DUBAI</p><span></span></div>
+  <main class="restaurant-card">
 
-      <img src="logo.jpg" class="restaurant-logo" alt="Tasty Shack logo">
+    <!-- Decorative corners -->
+    <span class="corner corner-top-left" aria-hidden="true"></span>
+    <span class="corner corner-top-right" aria-hidden="true"></span>
+    <span class="corner corner-bottom-left" aria-hidden="true"></span>
+    <span class="corner corner-bottom-right" aria-hidden="true"></span>
 
-      <h1 class="tagline">Comfort Food, Made With Love</h1>
 
-      <div class="divider"><span></span><div>◆</div><span></span></div>
+    <!-- Location -->
+    <div class="location-header">
+      <span>Cluster D · JLT · Dubai</span>
+    </div>
 
-      <div class="features">
-        <div class="feature"><div class="feature-circle">♨</div><p>UZBEK &amp;<br>RUSSIAN FOOD</p></div>
-        <div class="feature"><div class="feature-circle">✦</div><p>FRESH<br>INGREDIENTS</p></div>
-        <div class="feature"><div class="feature-circle">♡</div><p>FAMILY-RUN<br>KITCHEN</p></div>
+
+    <!-- Logo -->
+    <div class="logo-wrap">
+      <div class="logo-tile">
+
+        <!--
+          Change "logo.png" only if your logo has
+          a different filename in GitHub.
+        -->
+
+        <img
+          src="logo.png"
+          alt="Tasty Shack Logo"
+        >
+
+      </div>
+    </div>
+
+
+    <!-- Semantic restaurant name -->
+    <h1>Tasty Shack</h1>
+
+
+    <!-- Main dominant tagline -->
+    <p class="main-tagline">
+      Comfort Food,<br>
+      Made With Love
+    </p>
+
+
+    <div class="separator" aria-hidden="true">
+      <span>◆</span>
+    </div>
+
+
+    <!-- Feature row -->
+    <section class="features" aria-label="Why Tasty Shack">
+
+      <div class="feature">
+
+        <div class="feature-icon" aria-hidden="true">
+          🍲
+        </div>
+
+        <span class="feature-title">
+          Uzbek &amp;<br>
+          Russian Food
+        </span>
+
       </div>
 
-      <a class="button menu-button" href="https://thetastyshack.ae/" target="_blank" rel="noopener">
-        <div class="button-icon menu-symbol"><span></span><span></span><span></span></div>
-        <div class="button-text">VIEW MENU</div><div class="arrow">›</div>
-      </a>
 
-      <a class="button review-button" href="https://search.google.com/local/writereview?placeid=ChIJl_M2h99tXz4RnRTX-p48nXo" target="_blank" rel="noopener">
-        <div class="button-icon google-circle"><span class="g">G</span></div>
-        <div class="button-text">LEAVE A REVIEW</div><div class="arrow">›</div>
-      </a>
+      <div class="feature">
 
-      <a class="button directions-button" href="https://www.google.com/maps/search/?api=1&query=The+Tasty+Shack+Indigo+Tower+Cluster+D+JLT+Dubai" target="_blank" rel="noopener">
-        <div class="button-icon pin">●</div><div class="button-text">GET DIRECTIONS</div><div class="arrow">›</div>
-      </a>
+        <div class="feature-icon" aria-hidden="true">
+          ✦
+        </div>
 
-      <div class="bottom-message">Food That Feels Like Home</div>
-      <div class="divider bottom-divider"><span></span><div>◆</div><span></span></div>
+        <span class="feature-title">
+          Fresh<br>
+          Ingredients
+        </span>
 
-      <div class="footer">
-        THE TASTY SHACK<br>
-        INDIGO TOWER · CLUSTER D · JLT<br>
-        <a href="tel:+971585847088">+971 58 584 7088</a>
       </div>
+
+
+      <div class="feature">
+
+        <div class="feature-icon" aria-hidden="true">
+          ♡
+        </div>
+
+        <span class="feature-title">
+          Family-Run<br>
+          Kitchen
+        </span>
+
+      </div>
+
     </section>
+
+
+    <!-- Opening hours -->
+    <p class="hours">
+      <span>●</span>
+      Open Daily · 11:00 AM – 10:00 PM
+    </p>
+
+
+    <!-- Action buttons -->
+    <nav class="action-buttons" aria-label="Tasty Shack links">
+
+
+      <!-- MENU -->
+
+      <a
+        class="action-button button-menu"
+        href="MENU%20TASTY%20SHACK.pdf"
+        target="_blank"
+        rel="noopener"
+      >
+
+        <span class="button-icon" aria-hidden="true">
+          ☰
+        </span>
+
+        <span class="button-label">
+          VIEW MENU
+        </span>
+
+        <span class="button-arrow" aria-hidden="true">
+          ›
+        </span>
+
+      </a>
+
+
+      <!-- GOOGLE REVIEW -->
+
+      <a
+        class="action-button button-review"
+        href="https://www.google.com/maps/search/?api=1&query=Tasty+Shack+Indigo+Tower+JLT+Dubai"
+        target="_blank"
+        rel="noopener"
+      >
+
+        <span class="button-icon" aria-hidden="true">
+          G
+        </span>
+
+        <span class="button-label">
+          LEAVE A REVIEW
+        </span>
+
+        <span class="button-arrow" aria-hidden="true">
+          ›
+        </span>
+
+      </a>
+
+
+      <!-- DIRECTIONS -->
+
+      <a
+        class="action-button button-directions"
+        href="https://maps.google.com/?q=Tasty+Shack+Indigo+Tower+JLT+Dubai"
+        target="_blank"
+        rel="noopener"
+      >
+
+        <span class="button-icon" aria-hidden="true">
+          📍
+        </span>
+
+        <span class="button-label">
+          GET DIRECTIONS
+        </span>
+
+        <span class="button-arrow" aria-hidden="true">
+          ›
+        </span>
+
+      </a>
+
+    </nav>
+
+
+    <!-- Secondary tagline -->
+    <p class="secondary-tagline">
+      Food That Feels Like Home
+    </p>
+
+
+    <div class="footer-divider" aria-hidden="true">
+      <span>◆</span>
+    </div>
+
+
+    <!-- Contact / address -->
+    <address>
+
+      <span class="restaurant-footer-name">
+        The Tasty Shack
+      </span>
+
+      <a
+        href="https://maps.google.com/?q=Tasty+Shack+Indigo+Tower+JLT+Dubai"
+        target="_blank"
+        rel="noopener"
+      >
+        Indigo Tower · Cluster D · JLT · Dubai
+      </a>
+
+      <br>
+
+      <a href="tel:+971586847088">
+        +971 58 684 7088
+      </a>
+
+    </address>
+
+
   </main>
+
 </body>
 </html>
